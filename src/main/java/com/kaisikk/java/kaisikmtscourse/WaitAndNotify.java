@@ -2,6 +2,8 @@ package com.kaisikk.java.kaisikmtscourse;
 
 public class WaitAndNotify {
 
+
+    // wait и notify позволяют ожидать выполнение работы потока
     public static void main(String[] args) throws InterruptedException {
         ThreadB threadB = new ThreadB();
         threadB.start();

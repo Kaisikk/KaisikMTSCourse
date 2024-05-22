@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class AtomicValue {
 
+    // атомарные переменные позволяют работатать с несколькими потоками безопасно
     static AtomicInteger i = new AtomicInteger(0);
 
     public static void main(String[] args) throws InterruptedException {

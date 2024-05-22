@@ -2,6 +2,8 @@ package com.kaisikk.java.kaisikmtscourse;
 
 public class VolatileTest {
 
+
+    // volatile делает так чтобы переменные не кешировались в потоках
     volatile static int i = 0;
 
     public static void main(String[] args) {

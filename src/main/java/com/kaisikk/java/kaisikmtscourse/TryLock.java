@@ -5,6 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class TryLock {
 
+    // локи позволяют блокировать ресурсы на время чтобы другие потоки не работали
     static Lock lock = new ReentrantLock();
 
     public static void main(String[] args) {
