@@ -5,6 +5,7 @@ import java.util.concurrent.Semaphore;
 public class JavaSemofors {
 
     public static void main(String[] args) {
+        // объект с определенным количеством потоков, отдает поток если есть свободный
         Semaphore table = new Semaphore(2);
 
         Person person = new Person();
@@ -44,10 +45,12 @@ class Person extends Thread {
     public void run() {
         System.out.println(this.getName() + " waiting table");
         try {
+            // просим поток
             table.acquire();
             System.out.println(this.getName() + " eat at the table");
             this.sleep(500);
             System.out.println(this.getName() + " release table");
+            // освобождаем один из поток
             table.release();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);

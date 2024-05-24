@@ -22,6 +22,7 @@ public class ThreadCondition {
         public void run() {
             lock.lock();
             account += 10;
+            // сигнализируем, что поток отработал
             condition.signal();
             lock.unlock();
         }
@@ -34,7 +35,9 @@ public class ThreadCondition {
                 try {
                     lock.lock();
                     System.out.println(account);
+                    // ждем пока поток отправит сигнал, что отработал
                     condition.await();
+                    // продолжаем работу
                     System.out.println(account);
                     lock.unlock();
                 } catch (InterruptedException ex) {

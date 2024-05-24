@@ -5,6 +5,7 @@ import java.util.concurrent.CountDownLatch;
 public class JavaCountDownLatch {
 
     public static void main(String[] args) throws InterruptedException {
+        // объект с определенным количеством потоков
         CountDownLatch countDownLatch = new CountDownLatch(3);
         countDownLatch.countDown();
         countDownLatch.await();
@@ -12,6 +13,7 @@ public class JavaCountDownLatch {
         new Work(countDownLatch);
         new Work(countDownLatch);
 
+        // ждем пока все свободные потоки закончат работать
         countDownLatch.await();
         System.out.println("all jobs done");
     }
@@ -34,6 +36,7 @@ class Work extends Thread {
             throw new RuntimeException(e);
         }
         System.out.println("done workl");
+        // уменьшаем максимально возможное количество потоков
         countDownLatch.countDown();
     }
 }
