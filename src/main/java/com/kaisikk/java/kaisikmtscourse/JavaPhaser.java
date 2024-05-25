@@ -5,6 +5,7 @@ import java.util.concurrent.Phaser;
 public class JavaPhaser {
 
     public static void main(String[] args) {
+        // объект чтобы обрабатыать потоки по очереди
         Phaser phaser = new Phaser(2);
         new Washer(phaser);
         new Washer(phaser);
